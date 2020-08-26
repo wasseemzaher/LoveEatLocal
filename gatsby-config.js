@@ -18,11 +18,31 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-firestore",
+      resolve: "gatsby-source-firestore",
       options: {
-        credential: require("serviceAccountKey.json"),
+        credential: require("./serviceAccountKey.json"),
 
-        types: [{ type: "Product", collection: products,map: doc => ({name: doc.tit}) }, {}, {}],
+        types: [
+          {
+            type: "Product",
+            collection: "products",
+            map: doc => ({
+              name: doc.name,
+              dateCreated: doc.dateCreate,
+              id: doc.id,
+              media: doc.media,
+              price: doc.price,
+              stock: doc.stock,
+              notes: doc.notes,
+              description: doc.description,
+              display: doc.display,
+              instructions: doc.instructions,
+              tags: doc.tags
+            }),
+          },
+          {},
+          {},
+        ],
       },
     },
     {
