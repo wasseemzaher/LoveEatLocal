@@ -43,7 +43,7 @@ export default function AddProduct() {
       stock: Number(newProductStock),
       notes: newProductNotes,
       description: newProductDescription,
-      display: (document.getElementById("newProductDisplay").checked == true),
+      display: (document.getElementById("newProductDisplay").checked),
       instructions: newProductInstructions,
       // tags: newProductTags,
     }
@@ -134,9 +134,9 @@ export default function AddProduct() {
           type="checkbox"
           id="newProductDisplay"
           name="on"
-          // value={newProductDisplay}
+          value={newProductDisplay}
           checked
-          onChange={e => setNewProductDisplay(e.target.value)}
+          // onChange={e => setNewProductDisplay(!document.getElementById("newProductDisplay").checked)}
         />
         <br />
 
